@@ -1,5 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import axios from 'axios';
+
+// Ngrok Warning එක මඟහැරීමට
+axios.defaults.headers.common['ngrok-skip-browser-warning'] = 'true';
 
 // Importing Pages
 import StaffDashboard from './pages/StaffDashboard';
