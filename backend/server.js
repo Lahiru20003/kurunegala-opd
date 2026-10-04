@@ -42,15 +42,14 @@ whatsappClient.initialize().catch((error) => {
 app.locals.whatsappClient = whatsappClient;
 // ==========================================
 
-// Middleware - මෙතන තමයි වැදගත්ම කොටස
-app.use(cors({
+const corsOptions = {
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'ngrok-skip-browser-warning']
-}));
+};
 
-// Pre-flight requests සඳහා ඉඩ ලබාදීම
-app.options(/(.*)/, cors());
+app.use(cors(corsOptions));
+app.options(/(.*)/, cors(corsOptions));
 
 app.use(express.json());
 
